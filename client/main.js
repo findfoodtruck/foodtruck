@@ -30,11 +30,13 @@ Template.map.onCreated(function() {
 
   GoogleMaps.ready('map', function(map) {
     var marker;
+    var image = '/images/food-truck.png';
     var myLatlng = new google.maps.LatLng(17.463882, 78.344922);;
     var marker1 = new google.maps.Marker({
       position: new google.maps.LatLng(myLatlng.lat, myLatlng.lng),
       map: map.instance,
       animation: google.maps.Animation.DROP,
+      icon: image
 
     });
     var myLatlng2 = new google.maps.LatLng(17.46, 78.34);;
@@ -42,7 +44,7 @@ Template.map.onCreated(function() {
       position: new google.maps.LatLng(myLatlng2.lat, myLatlng2.lng),
       map: map.instance,
       animation: google.maps.Animation.DROP,
-
+      icon: image
     });
 
 
@@ -53,13 +55,14 @@ Template.map.onCreated(function() {
       if (!latLng)
         return;
       // If the marker doesn't yet exist, create it.
-      var image = 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png';
       if (!marker) {
         marker = new google.maps.Marker({
           position: new google.maps.LatLng(latLng.lat, latLng.lng),
           map: map.instance,
           title: 'my truck',
           animation: google.maps.Animation.DROP,
+          icon: image,
+          label: 'this is label'
         });
       }
       // The marker already exists, so we'll just change its position.
